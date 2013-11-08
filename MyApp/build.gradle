@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.+',
+                  'com.novoda.gradle:robolectric-plugin:0.0.1-SNAPSHOT'
+    }
+}
+
+apply plugin: 'android'
+apply plugin: 'robolectric'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.1.1"
+
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 18
+    }
+}
+
+dependencies {
+	compile 'com.android.support:appcompat-v7:+'
+    compile 'com.android.support:support-v4:18.0.+'
+
+    robolectricCompile 'org.robolectric:robolectric:2.2+'
+    robolectricCompile 'junit:junit:4.11+'
+}
